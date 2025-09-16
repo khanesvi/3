@@ -603,6 +603,13 @@ window.onload = function(){
 		window.level = new Level(window.INTRO_LEVEL,true);
 
 		//////////
+        window.addEventListener("touchstart", function unlockSounds(){
+          createjs.Sound.play("step",{volume:0,loop:0});
+          createjs.Sound.play("ding",{volume:0,loop:0});
+          createjs.Sound.play("unlock",{volume:0,loop:0});
+          createjs.Sound.play("error",{volume:0,loop:0});
+          window.removeEventListener("touchstart", unlockSounds);
+    }, { once:true });
 
 		var frameDirty = false;
 		function update(){
